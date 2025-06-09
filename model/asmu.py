@@ -94,7 +94,7 @@ class SparseMaskConv(nn.Module):
         self.collect = nn.Conv2d(out_channels*self.n_layers, out_channels, 1, 1, 0)
 
         sparse_attention = [
-            SparseMask.SparseAttention(channels=opt.n_feats, chunk_size=32, n_hashes=4, reduction=4,
+            SparseMask.SparseAttention(channels=opt.n_feats, chunk_size=512, n_hashes=4, reduction=4,
                                                         res_scale=0.1)]
 
         self.body_sparse_attention = nn.Sequential(*sparse_attention)
