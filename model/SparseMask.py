@@ -82,7 +82,7 @@ class SparseAttention(nn.Module):
         bucket_score = torch.reshape(bucket_score, [N, self.n_hashes, -1])
 
         # Select top-k scores
-        k = int(self.chunk_size * 0)  # Example: take top 20%
+        k = int(self.chunk_size * 0.2)  # Example: take top 20%
         top_k_scores, top_k_indices = torch.topk(score, k, dim=-1)  # [N, n_hashes, num_chunks, k]
 
         # Create a tensor to hold the filled scores
